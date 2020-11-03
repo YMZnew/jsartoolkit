@@ -111,13 +111,13 @@ function initialize()
 	scene.add(markerRoot1);
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 		type : 'pattern',
-		patternUrl : "data/hiro.patt",
+		patternUrl : "data/pattern-hosna.patt",
 	})
 
 	// the inside of the hole
 	let geometry1	= new THREE.CylinderGeometry(1,1, 4, 32,1);
 	let loader = new THREE.TextureLoader();
-	let texture = loader.load( 'images/tiles.jpg', render );
+	let texture = loader.load( 'images/pattern_.jpg', render );
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.set(4,2);
