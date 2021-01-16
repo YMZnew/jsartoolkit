@@ -153,7 +153,7 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 
 	// init default value
 	onError = onError || function(error){	
-		alert('Webcam Error\nName: '+error.name + '\nMessage: '+error.message)
+		alert('YMZ Webcam Error\nName: '+error.name + '\nMessage: '+error.message)
 	}
 
 	var domElement = document.createElement('video');
@@ -173,7 +173,7 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 		else console.assert(false)
 		onError({
 			name: '',
-			message: 'WebRTC issue-! '+fctName+' not present in your browser'
+			message: 'YMZ1 WebRTC issue-! '+fctName+' not present in your browser'
 		})
 		return null
 	}
