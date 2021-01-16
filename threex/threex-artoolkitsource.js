@@ -216,7 +216,7 @@ alert("YMZ1 passed");
 			// wait until the video stream is ready
 			var interval = setInterval(function() {
 
-alert("YMZ2 passed");
+//alert("YMZ2 passed");
 				if (!domElement.videoWidth)	return;
 				onReady()
 				clearInterval(interval)
