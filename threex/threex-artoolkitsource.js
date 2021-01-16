@@ -178,41 +178,50 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 		return null
 	}*/
 
+var aspect = 200/280;
 	// get available devices
 	navigator.mediaDevices.enumerateDevices().then(function(devices) {
                 var userMediaConstraints = {
 			audio: false,
 			video: {
-				facingMode: 'environment',
+			
 				width: {
-					ideal: _this.parameters.sourceWidth,
+					ideal: 200,
 					// min: 1024,
 					// max: 1920
 				},
 				height: {
-					ideal: _this.parameters.sourceHeight,
+					ideal: 280,
 					// min: 776,
 					// max: 1080
-				}
+				},
+aspectRatio: { ideal:  aspect},
+                              facingMode : 'environment'
 		  	}
                 }
 		// get a device which satisfy the constraints
 		navigator.mediaDevices.getUserMedia(userMediaConstraints).then(function success(stream) {
 			// set the .src of the domElement
 			domElement.srcObject = stream;
+
+alert("YMZ0 passed");
 			// to start the video, when it is possible to start it only on userevent. like in android
 			document.body.addEventListener('click', function(){
 				domElement.play();
 			})
 			// domElement.play();
 
+alert("YMZ1 passed");
 // TODO listen to loadedmetadata instead
 			// wait until the video stream is ready
 			var interval = setInterval(function() {
+
+alert("YMZ2 passed");
 				if (!domElement.videoWidth)	return;
 				onReady()
 				clearInterval(interval)
 			}, 1000/50);
+
 		}).catch(function(error) {
 			onError({
 				name: "YMZ2 "+error.name,
