@@ -164,7 +164,7 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 	domElement.style.height = this.parameters.displayHeight+'px'
 
 	// check API is available
-	if (navigator.mediaDevices === undefined 
+	/*if (navigator.mediaDevices === undefined 
 			|| navigator.mediaDevices.enumerateDevices === undefined 
 			|| navigator.mediaDevices.getUserMedia === undefined  ){
 		if( navigator.mediaDevices === undefined )				var fctName = 'navigator.mediaDevices'
@@ -176,7 +176,7 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 			message: 'YMZ1 WebRTC issue-! '+fctName+' not present in your browser'
 		})
 		return null
-	}
+	}*/
 
 	// get available devices
 	navigator.mediaDevices.enumerateDevices().then(function(devices) {
@@ -215,13 +215,13 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 			}, 1000/50);
 		}).catch(function(error) {
 			onError({
-				name: error.name,
+				name: "YMZ2 "+error.name,
 				message: error.message
 			});
 		});
 	}).catch(function(error) {
 		onError({
-			message: error.message
+			message: "YMZ3 " +error.message
 		});
 	});
 
